@@ -1,0 +1,32 @@
+{
+  "name": "strapi-provider-upload-cos",
+  "version": "3.0.5",
+  "description": "Qcloud COS provider for strapi upload",
+  "main": "index.js",
+  "scripts": {
+    "preversion": "git add -A",
+    "postversion": "git push & git push --tag"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baranwang/strapi-provider-upload-cos.git"
+  },
+  "keywords": [
+    "strapi",
+    "tencent",
+    "qcloud",
+    "cos"
+  ],
+  "strapi": {
+    "isProvider": true
+  },
+  "author": "Baran <wang.baran@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/baranwang/strapi-provider-upload-cos/issues"
+  },
+  "homepage": "https://github.com/baranwang/strapi-provider-upload-cos#readme",
+  "dependencies": {
+    "cos-nodejs-sdk-v5": "^2.6.2"
+  }
+}
