@@ -1,6 +1,6 @@
 {
   "name": "strapi-provider-upload-cos",
-  "version": "3.0.5",
+  "version": "3.6.2",
   "description": "Qcloud COS provider for strapi upload",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/baranwang/strapi-provider-upload-cos#readme",
   "dependencies": {
-    "cos-nodejs-sdk-v5": "^2.6.2"
+    "axios": "^0.21.1",
+    "cos-nodejs-sdk-v5": "^2.9.15"
   }
 }

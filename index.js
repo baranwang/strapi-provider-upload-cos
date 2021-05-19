@@ -2,6 +2,7 @@ const COS = require('cos-nodejs-sdk-v5');
 const { resolve: pathResolve } = require('path');
 const crypto = require('crypto');
 const { URL } = require('url');
+const { default: axios } = require('axios');
 
 module.exports = {
   init(config) {
@@ -12,6 +13,7 @@ module.exports = {
       Bucket,
       BasePath,
       BaseOrigin,
+      imageAve,
     } = config;
 
     const cos = new COS({
@@ -38,9 +40,13 @@ module.exports = {
               Key: getKey(file),
               Body: Buffer.from(file.buffer, 'binary'),
             },
-            (err, data) => {
+            async (err, data) => {
               if (err) return reject(err);
-              file.url = `http://${data.Location}`;
+              file.url = `https://${data.Location}`;
+              if (imageAve) {
+                const { data } = await axios.get(`${file.url}?imageAve`)
+                file.provider_metadata = data
+              }
               if (BaseOrigin) {
                 file.url = new URL(new URL(file.url).pathname, BaseOrigin).href;
               }
