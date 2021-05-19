@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/baranwang/strapi-provider-upload-cos#readme",
   "dependencies": {
-    "axios": "^0.21.1",
-    "cos-nodejs-sdk-v5": "^2.9.15"
+    "cos-nodejs-sdk-v5": "^2.9.15",
+    "node-fetch": "^2.6.1"
   }
 }

@@ -2,7 +2,7 @@ const COS = require('cos-nodejs-sdk-v5');
 const { resolve: pathResolve } = require('path');
 const crypto = require('crypto');
 const { URL } = require('url');
-const { default: axios } = require('axios');
+const { default: fetch } = require('node-fetch');
 
 module.exports = {
   init(config) {
@@ -44,8 +44,9 @@ module.exports = {
               if (err) return reject(err);
               file.url = `https://${data.Location}`;
               if (imageAve) {
-                const { data } = await axios.get(`${file.url}?imageAve`)
-                file.provider_metadata = data
+                try {
+                  file.provider_metadata = await fetch(`${file.url}?imageAve`).then(res => res.json())
+                } catch (error) { }
               }
               if (BaseOrigin) {
                 file.url = new URL(new URL(file.url).pathname, BaseOrigin).href;
