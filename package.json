@@ -28,6 +28,6 @@
   "homepage": "https://github.com/baranwang/strapi-provider-upload-cos#readme",
   "dependencies": {
     "cos-nodejs-sdk-v5": "^2.9.15",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^3.1.1"
   }
 }
